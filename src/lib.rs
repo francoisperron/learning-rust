@@ -1,2 +1,2 @@
-mod book;
+pub mod book;
 pub mod kata;
