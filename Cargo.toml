@@ -2,6 +2,9 @@
 name = "learning-rust"
 version = "0.1.0"
 edition = "2021"
+authors = ["François Perron <fperron@gmail.com>"]
+license = "MIT"
 
 [dependencies]
 rand = "0.8.5"
+stacker = "0.1.15"
