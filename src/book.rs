@@ -5,4 +5,7 @@ mod _05_structs;
 mod _06_enums;
 mod _08_collections;
 mod _09_errors;
+mod _10_generic_types;
+mod _10_traits;
+mod _10_lifetimes;
 mod _13_iterators;

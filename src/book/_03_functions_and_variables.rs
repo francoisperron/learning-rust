@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
     #[test]
-    fn if_else() {
+    fn if_else_works() {
         let condition = true;
         let number = if condition { 5 } else { 6 };
         assert_eq!(number, 5);
