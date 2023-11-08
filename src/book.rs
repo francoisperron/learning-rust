@@ -9,4 +9,5 @@ mod _10_generic_types;
 mod _10_traits;
 mod _10_lifetimes;
 mod _11_tests;
+mod _13_closures;
 mod _13_iterators;
