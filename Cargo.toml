@@ -3,6 +3,7 @@ name = "learning-rust"
 version = "0.1.0"
 edition = "2021"
 authors = ["François Perron <fperron@gmail.com>"]
+description = "Let's learn Rust"
 license = "MIT"
 
 [dependencies]
