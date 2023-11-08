@@ -21,14 +21,8 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             target
-            src/book/_12_minigrep/target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Test
         run: |
-          cargo test
-
-      - name: Test minigrep
-        run: |
-          cd src/book/_12_minigrep/
-          cargo test
+          cargo test --workspace

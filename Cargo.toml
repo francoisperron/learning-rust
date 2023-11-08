@@ -6,6 +6,10 @@ authors = ["François Perron <fperron@gmail.com>"]
 description = "Let's learn Rust"
 license = "MIT"
 
+[workspace]
+members = [".", "src/book/_12_minigrep"]
+default-members = [".", "src/book/_12_minigrep"]
+
 [dependencies]
 rand = "0.8.5"
 stacker = "0.1.15"
