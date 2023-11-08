@@ -14,11 +14,21 @@ jobs:
           toolchain: stable
           profile: minimal
 
+      - name: ⚡ Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+            src/book/_12_minigrep/target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
       - name: Test
         run: |
           cargo test
 
       - name: Test minigrep
         run: |
-          cd ./src/book/_12_minigrep/
+          cd src/book/_12_minigrep/
           cargo test
