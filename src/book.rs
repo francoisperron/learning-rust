@@ -15,5 +15,6 @@ pub mod _14_doctest;
 mod _15_box;
 mod _15_deref_and_drop;
 mod _15_rc_smart_pointer;
-mod _15_refcell_smart_pointers;
+mod _15_refcell_smart_pointer;
+mod _15_weak_smart_pointer;
 mod _15_mocks;
