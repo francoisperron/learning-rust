@@ -12,3 +12,8 @@ mod _11_tests;
 mod _13_closures;
 mod _13_iterators;
 pub mod _14_doctest;
+mod _15_box;
+mod _15_deref_and_drop;
+mod _15_rc_smart_pointer;
+mod _15_refcell_smart_pointers;
+mod _15_mocks;

@@ -20,8 +20,8 @@ mod tests {
         let ipv4 = IpAddr::V4(127, 0, 0, 1);
         let ipv6 = IpAddr::V6(String::from("::1"));
 
-        assert_eq!(ipv4.is_ipv4(), true);
-        assert_eq!(ipv6.is_ipv4(), false);
+        assert!(ipv4.is_ipv4());
+        assert!(!ipv6.is_ipv4());
     }
 
     #[derive(Debug)]
@@ -40,7 +40,7 @@ mod tests {
     }
 
     #[test]
-    fn options_are_nice() {
+    fn unwrap_option_with_default() {
         let x = 5;
         let y = Some(5);
         let z: Option<i32> = None;
