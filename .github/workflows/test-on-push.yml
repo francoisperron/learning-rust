@@ -10,9 +10,6 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: stable
-          profile: minimal
 
       - name: ⚡ Cache
         uses: actions/cache@v3
