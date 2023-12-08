@@ -156,4 +156,13 @@ mod tests {
         let middle_three_numbers = &numbers[1..4];
         assert_eq!(middle_three_numbers, [2, 3, 4]);
     }
+
+    #[test]
+    fn sort_works() {
+        let mut numbers = [3, 1, 4, 5, 2];
+
+        numbers.sort();
+
+        assert_eq!(numbers, [1, 2, 3, 4, 5])
+    }
 }
