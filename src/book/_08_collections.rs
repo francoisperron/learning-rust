@@ -98,6 +98,16 @@ mod tests {
     }
 
     #[test]
+    fn hashmaps_are_created_easily_with_from() {
+        let map = HashMap::from([
+            ("1", 1),
+            ("2", 2)
+        ]);
+
+        assert_eq!(map.get("1").copied().unwrap(), 1);
+    }
+
+    #[test]
     fn hashmaps_are_updated() {
         let mut map: HashMap<&str, i32> = HashMap::new();
 
