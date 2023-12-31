@@ -68,4 +68,26 @@ mod tests {
             println!("drop");
         }
     }
+
+    #[test]
+    fn auto_deref_on_vec() {
+        let friends = Friends { friends: vec![Friend { name: "bil".to_string() }, Friend { name: "bo".to_string() }] };
+
+        assert_eq!(call(&friends.friends), "hello bil, hello bo");
+    }
+
+    struct Friends {
+        friends: Vec<Friend>,
+    }
+
+    struct Friend {
+        name: String,
+    }
+
+    fn call(friends: &[Friend]) -> String {
+        friends
+            .iter().map(|f| format!("hello {}", f.name))
+            .collect::<Vec<String>>()
+            .join(", ")
+    }
 }
