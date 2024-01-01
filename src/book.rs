@@ -21,3 +21,8 @@ mod _15_mocks;
 mod _16_fearless_concurrency;
 mod _17_oop;
 mod _18_patterns_matching;
+mod _19_unsafe_rust;
+mod _19_advanced_traits;
+mod _19_advanced_types;
+mod _19_advanced_functions_and_closures;
+mod _19_macros;

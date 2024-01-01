@@ -7,9 +7,11 @@ description = "Let's learn Rust"
 license = "MIT"
 
 [workspace]
-members = [".", "src/book/_12_minigrep"]
-default-members = [".", "src/book/_12_minigrep"]
+members = [".", "src/book/_12_minigrep", "src/book/_19_hello_macro", "src/book/_19_hello_macro/_19_hello_macro_derive"]
+default-members = [".", "src/book/_12_minigrep", "src/book/_19_hello_macro", "src/book/_19_hello_macro/_19_hello_macro_derive"]
 
 [dependencies]
 rand = "0.8.5"
 stacker = "0.1.15"
+_19_hello_macro = { path = "src/book/_19_hello_macro" }
+_19_hello_macro_derive = { path = "src/book/_19_hello_macro/_19_hello_macro_derive" }
