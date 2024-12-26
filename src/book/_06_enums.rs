@@ -24,6 +24,7 @@ mod tests {
         assert!(!ipv6.is_ipv4());
     }
 
+    #[allow(dead_code)]
     #[derive(Debug)]
     enum IpAddr {
         V4(u8, u8, u8, u8),
