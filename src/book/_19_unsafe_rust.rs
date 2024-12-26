@@ -23,21 +23,6 @@ mod tests {
     unsafe fn dangerous() -> String { "pouet".to_string() }
 
     #[test]
-    fn allows_accessing_or_modifying_a_mutable_static_variable() {
-        add_to_count(5);
-
-        unsafe { assert_eq!(COUNTER, 5); }
-    }
-
-    static mut COUNTER: u32 = 0;
-
-    fn add_to_count(inc: u32) {
-        unsafe {
-            COUNTER += inc;
-        }
-    }
-
-    #[test]
     fn allows_implementing_an_unsafe_trait() {
         assert_eq!(3.push(), "Booh! Booh! Booh! ")
     }

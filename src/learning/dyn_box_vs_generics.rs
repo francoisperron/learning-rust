@@ -1,7 +1,9 @@
+#[allow(dead_code)]
 trait Greet {
     fn greet(&self) -> String;
 }
 
+#[allow(dead_code)]
 struct Alice;
 
 impl Greet for Alice {
@@ -10,6 +12,7 @@ impl Greet for Alice {
     }
 }
 
+#[allow(dead_code)]
 struct Carlo;
 
 impl Greet for Carlo {
@@ -80,7 +83,7 @@ mod tests {
     
     #[test]
     fn conditional_types_with_generics_does_not_compile() {
-        let name= "carlo";
+        // let name= "carlo";
 
         // let user = match name {
         //     "carlo" => UserGen { greet: Carlo },
