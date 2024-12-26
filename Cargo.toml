@@ -5,6 +5,7 @@ edition = "2021"
 authors = ["François Perron <fperron@gmail.com>"]
 description = "Let's learn Rust"
 license = "MIT"
+default-run = "learning-rust"
 
 [workspace]
 members = [".", "src/book/_12_minigrep", "src/book/_19_hello_macro", "src/book/_19_hello_macro/_19_hello_macro_derive", "src/book/_20_web_server"]
@@ -13,5 +14,7 @@ default-members = [".", "src/book/_12_minigrep", "src/book/_19_hello_macro", "sr
 [dependencies]
 rand = "0.8.5"
 stacker = "0.1.15"
+_12_minigrep = { path = "src/book/_12_minigrep" }
 _19_hello_macro = { path = "src/book/_19_hello_macro" }
 _19_hello_macro_derive = { path = "src/book/_19_hello_macro/_19_hello_macro_derive" }
+_20_web_server = { path = "src/book/_20_web_server" }
