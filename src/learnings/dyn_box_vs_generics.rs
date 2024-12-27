@@ -24,7 +24,7 @@ impl Greet for Carlo {
 
 #[cfg(test)]
 mod tests {
-    use crate::learning::dyn_box_vs_generics::{Alice, Carlo, Greet};
+    use crate::learnings::dyn_box_vs_generics::{Alice, Carlo, Greet};
 
     #[test]
     fn struct_with_a_trait_does_not_compile() {

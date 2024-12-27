@@ -1,6 +1,6 @@
 pub mod book;
 pub mod kata;
-pub mod learning;
+pub mod learnings;
 
 // exporting a public API to hide module details
 // so it can be used as

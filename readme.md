@@ -2,8 +2,9 @@
 
 Let's learn Rust
 
-src/book - contains learnings from the [Rust book](https://doc.rust-lang.org/book/title-page.html).\
-src/kata - contains kata
+src/book - Exercises from the [Rust book](https://doc.rust-lang.org/book/title-page.html).\
+src/kata - Kata
+src/learnings - Specific learnings
 
 To run tests:
 
