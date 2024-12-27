@@ -1,9 +1,9 @@
-use std::io::{BufRead, BufReader, Write};
-use std::net::{TcpListener, TcpStream};
-use std::{fs, thread};
-use std::time::Duration;
 use crate::http::request::Request;
 use crate::threads::thread_pool::ThreadPool;
+use std::io::{BufRead, BufReader, Write};
+use std::net::{TcpListener, TcpStream};
+use std::time::Duration;
+use std::{fs, thread};
 
 pub struct Server {}
 
@@ -17,7 +17,7 @@ impl Server {
         for stream in listener.incoming() {
             let stream = stream.unwrap();
             let base_path = base_path.to_string();
-            pool.execute(move || { Server::handle(stream, &base_path) });
+            pool.execute(move || Server::handle(stream, &base_path));
         }
     }
 

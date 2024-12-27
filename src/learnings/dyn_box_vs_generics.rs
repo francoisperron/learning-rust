@@ -21,7 +21,6 @@ impl Greet for Carlo {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use crate::learnings::dyn_box_vs_generics::{Alice, Carlo, Greet};
@@ -42,7 +41,7 @@ mod tests {
     struct UserDyn {
         greet: Box<dyn Greet>,
     }
-    
+
     #[test]
     fn struct_with_dyn_box() {
         let alice = UserDyn { greet: Box::new(Alice) };
@@ -51,17 +50,17 @@ mod tests {
         let carlo = UserDyn { greet: Box::new(Carlo) };
         assert_eq!(carlo.greet.greet(), "Ciao");
     }
-    
+
     #[test]
     fn conditional_types_with_dyn_box() {
-        let name= "carlo";
-        
+        let name = "carlo";
+
         let user = match name {
             "carlo" => UserDyn { greet: Box::new(Carlo) },
             "alice" => UserDyn { greet: Box::new(Alice) },
             _ => panic!("Unknown user"),
         };
-        
+
         assert_eq!(user.greet.greet(), "Ciao");
     }
 
@@ -71,7 +70,7 @@ mod tests {
     {
         greet: T,
     }
-    
+
     #[test]
     fn struct_with_generics() {
         let alice = UserGen { greet: Alice };
@@ -80,7 +79,7 @@ mod tests {
         let carlo = UserGen { greet: Carlo };
         assert_eq!(carlo.greet.greet(), "Ciao");
     }
-    
+
     #[test]
     fn conditional_types_with_generics_does_not_compile() {
         // let name= "carlo";
@@ -116,10 +115,10 @@ mod tests {
             self.on_greet(|greet| greet.greet())
         }
     }
-    
+
     #[test]
     fn wrap_generics() {
-        let name= "carlo";
+        let name = "carlo";
 
         let user = match name {
             "carlo" => UserGen { greet: MyGreet::Carlo(Carlo) },

@@ -1,6 +1,6 @@
 pub enum Message {
     Execute(Job),
-    Terminate
+    Terminate,
 }
 
 pub type Job = Box<dyn FnOnce() + Send + 'static>;

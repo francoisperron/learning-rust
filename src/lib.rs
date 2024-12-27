@@ -1,4 +1,5 @@
 pub mod book;
+pub use book::_02_guessing_game;
 pub mod kata;
 pub mod learnings;
 

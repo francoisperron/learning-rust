@@ -62,5 +62,3 @@ mod tests {
         assert_eq!(*c2.borrow(), 15);
     }
 }
-
-

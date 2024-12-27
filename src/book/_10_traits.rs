@@ -90,7 +90,10 @@ mod tests {
         format!("{date} : {text}!!!", date = item.date(), text = item.summarize()).to_uppercase()
     }
 
-    fn add_wow_factor_2<T>(item: &T) -> String where T: Summary + Date {
+    fn add_wow_factor_2<T>(item: &T) -> String
+    where
+        T: Summary + Date,
+    {
         format!("{date} : {text}!!!", date = item.date(), text = item.summarize()).to_uppercase()
     }
 
@@ -119,7 +122,7 @@ mod tests {
 
     impl<T: Summary> ToEmoji for T {
         fn to_emoji(&self, emoji: &str) -> String {
-            format!("{emoji} {summary} {emoji}", summary=self.summarize())
+            format!("{emoji} {summary} {emoji}", summary = self.summarize())
         }
     }
 }

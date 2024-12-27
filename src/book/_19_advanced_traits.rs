@@ -74,10 +74,7 @@ mod tests {
 
         // other is by default of type Self
         fn add(self, other: Point) -> Point {
-            Point {
-                x: self.x + other.x,
-                y: self.y + other.y,
-            }
+            Point { x: self.x + other.x, y: self.y + other.y }
         }
     }
 

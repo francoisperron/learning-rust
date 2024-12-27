@@ -7,7 +7,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn from(mut args: impl Iterator<Item=String>) -> Result<Config, &'static str> {
+    pub fn from(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
         let query = args.next().ok_or("usage: minigrep <query> <file path>")?;
@@ -20,14 +20,16 @@ impl Config {
 
 #[cfg(test)]
 mod tests {
-    use serial_test::serial;
     use super::*;
+    use serial_test::serial;
 
     #[test]
     #[serial]
     fn parses_args_to_config() {
         env::remove_var("IGNORE_CASE");
-        let args = ["", "query", "file_path"].into_iter().map(|s| s.to_string());
+        let args = ["", "query", "file_path"]
+            .into_iter()
+            .map(|s| s.to_string());
         let config = Config::from(args).unwrap();
 
         assert_eq!(config.query, "query");
@@ -39,7 +41,9 @@ mod tests {
     #[serial]
     fn sets_ignore_case_when_ignore_case_env_var_is_defined() {
         env::set_var("IGNORE_CASE", "any");
-        let args = ["", "query", "file_path"].into_iter().map(|s| s.to_string());
+        let args = ["", "query", "file_path"]
+            .into_iter()
+            .map(|s| s.to_string());
         let config = Config::from(args).unwrap();
 
         assert!(config.ignore_case);

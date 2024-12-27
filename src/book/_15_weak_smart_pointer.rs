@@ -8,7 +8,7 @@ mod tests {
 
         assert!(w.upgrade().is_none());
     }
-    
+
     #[test]
     fn create_a_weak_pointer_with_downgrade_from_a_rc() {
         let p = Rc::new(5);

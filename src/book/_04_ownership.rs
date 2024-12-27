@@ -12,25 +12,27 @@ mod tests {
         assert_eq!(z, "world")
     }
 
-    fn a() -> (&'static str, i32, String) {   // creates a frame on stack
+    fn a() -> (&'static str, i32, String) {
+        // creates a frame on stack
         print_stack("a");
-        let x = "hello";                    // create a reference on stack to a string in binary
-        let y = 22;                          // stored on stack
-        let z = b();                       // creates a frame on stack
-        return (x, y, z);                     // remove frame from stack
+        let x = "hello"; // create a reference on stack to a string in binary
+        let y = 22; // stored on stack
+        let z = b(); // creates a frame on stack
+        return (x, y, z); // remove frame from stack
     }
 
-    fn b() -> String {                       // creates a frame on stack
+    fn b() -> String {
+        // creates a frame on stack
         print_stack("b");
-        let x = "world".to_string();      // allocates memory on the heap for the string
-        // and stores the pointer to the heap on stack
-        return x;                            // remove frame from stack
+        let x = "world".to_string(); // allocates memory on the heap for the string
+                                     // and stores the pointer to the heap on stack
+        return x; // remove frame from stack
     }
 
     fn print_stack(info: &str) {
         match stacker::remaining_stack() {
             Some(value) => println!("{value} : {info}"),
-            None => println!("unable to get remaining stack")
+            None => println!("unable to get remaining stack"),
         }
     }
 
@@ -58,7 +60,7 @@ mod tests {
     #[test]
     fn function_call_copies_like_variable_assignation() {
         let a = 1;
-        copies_value(a);                 // a was copied into i variable, a still valid
+        copies_value(a); // a was copied into i variable, a still valid
         assert_eq!(a, 1);
     }
 
@@ -84,18 +86,18 @@ mod tests {
     #[test]
     fn function_call_moves_like_variable_assignation() {
         let a = String::from("hello");
-        takes_ownership(a);                 // a has moved into s variable, a no longer valid
-        // println!("{a}")                     // ⚠️borrow of moved value a error E0382
+        takes_ownership(a); // a has moved into s variable, a no longer valid
+                            // println!("{a}")                     // ⚠️borrow of moved value a error E0382
     }
 
     fn takes_ownership(s: String) {
         println!("{s}")
-    }                                           // s is dropped
+    } // s is dropped
 
     #[test]
     fn function_return_moves_returned_value() {
-        let s = gives_ownership();      // a has moved into s
-        assert_eq!(s, "bye");                  // s is usable
+        let s = gives_ownership(); // a has moved into s
+        assert_eq!(s, "bye"); // s is usable
     }
 
     fn gives_ownership() -> String {
@@ -112,11 +114,11 @@ mod tests {
         assert_eq!(len, 5);
     }
 
-    fn calculate_length(s: &String) -> usize { // s points to a that points to hello
+    fn calculate_length(s: &String) -> usize {
+        // s points to a that points to hello
         let length = s.len();
         length
     } // s is dropped, but not a
-
 
     #[test]
     fn use_mutable_reference_to_allow_changes() {
@@ -155,6 +157,6 @@ mod tests {
         assert_eq!(b, "Hello");
 
         let c = &mut a;
-        assert_eq!(c, "Hello");     // can declare a mutable reference to a since b is dropped
+        assert_eq!(c, "Hello"); // can declare a mutable reference to a since b is dropped
     }
 }

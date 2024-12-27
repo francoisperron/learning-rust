@@ -33,7 +33,7 @@ mod tests {
         // with get()
         let g1 = match v.get(1) {
             Some(second) => *second,
-            None => 0
+            None => 0,
         };
         assert_eq!(g1, 2);
     }
@@ -71,8 +71,8 @@ mod tests {
         let s1 = "s".to_string();
         let s2 = "os".to_string();
 
-        let s3 = s1 + &s2;  // s1 moved to s3, s1 no longer valid
-        // assert_eq!(s1, "s");    // cant borrow
+        let s3 = s1 + &s2; // s1 moved to s3, s1 no longer valid
+                           // assert_eq!(s1, "s");    // cant borrow
 
         assert_eq!(s3, "sos");
     }
@@ -99,10 +99,7 @@ mod tests {
 
     #[test]
     fn hashmaps_are_created_easily_with_from() {
-        let map = HashMap::from([
-            ("1", 1),
-            ("2", 2)
-        ]);
+        let map = HashMap::from([("1", 1), ("2", 2)]);
 
         assert_eq!(map.get("1").copied().unwrap(), 1);
     }
@@ -118,14 +115,10 @@ mod tests {
         map.entry("2").or_insert(2);
         assert_eq!(map.get("2").copied().unwrap(), 2);
 
-        map.entry("3")
-            .and_modify(|e| { *e += 1 })
-            .or_insert(42);
+        map.entry("3").and_modify(|e| *e += 1).or_insert(42);
         assert_eq!(map["3"], 42);
 
-        map.entry("3")
-            .and_modify(|e| { *e += 1 })
-            .or_insert(555);
+        map.entry("3").and_modify(|e| *e += 1).or_insert(555);
         assert_eq!(map["3"], 43);
     }
 }

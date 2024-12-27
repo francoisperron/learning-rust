@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use std::sync::{Arc, mpsc, Mutex};
     use std::sync::mpsc::Sender;
+    use std::sync::{mpsc, Arc, Mutex};
     use std::thread;
     use std::time::Duration;
 
@@ -90,9 +90,16 @@ mod tests {
         send(tx, vec![String::from("1"), String::from("1"), String::from("1"), String::from("1")]);
 
         let mut expected = vec![
-            String::from("1"), String::from("1"), String::from("1"), String::from("1"),
-            String::from("1"), String::from("1"), String::from("1"), String::from("1"),
-        ].into_iter();
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+            String::from("1"),
+        ]
+        .into_iter();
 
         for received in rx {
             assert_eq!(received, expected.next().unwrap());

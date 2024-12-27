@@ -25,7 +25,7 @@ impl<'a> LimitTracker<'a> {
             v if v >= 1.0 => Some("Error: You are over your quota!"),
             v if v >= 0.9 => Some("Urgent warning: You've used up over 90% of your quota!"),
             v if v >= 0.75 => Some("Warning: You've used up over 75% of your quota!"),
-            _ => None
+            _ => None,
         };
 
         if let Some(m) = message {
@@ -36,8 +36,8 @@ impl<'a> LimitTracker<'a> {
 
 #[cfg(test)]
 mod tests {
-    use std::cell::RefCell;
     use super::*;
+    use std::cell::RefCell;
 
     #[test]
     fn sends_an_over_75_percent_warning_message() {

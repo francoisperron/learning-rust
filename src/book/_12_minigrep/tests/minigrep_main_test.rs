@@ -8,7 +8,9 @@ mod minigrep_main_tests {
         let mut cmd = Command::cargo_bin("_12_minigrep")?;
         cmd.arg("to").arg("./tests/poem.txt");
 
-        cmd.assert().success().stdout(predicate::str::contains("Are you nobody, too?\nHow dreary to be somebody!"));
+        cmd.assert()
+            .success()
+            .stdout(predicate::str::contains("Are you nobody, too?\nHow dreary to be somebody!"));
 
         Ok(())
     }
@@ -16,9 +18,13 @@ mod minigrep_main_tests {
     #[test]
     fn searches_case_insensitive() -> Result<(), Box<dyn std::error::Error>> {
         let mut cmd = Command::cargo_bin("_12_minigrep")?;
-        cmd.arg("PUBLIC").arg("./tests/poem.txt").env("IGNORE_CASE", "true");
+        cmd.arg("PUBLIC")
+            .arg("./tests/poem.txt")
+            .env("IGNORE_CASE", "true");
 
-        cmd.assert().success().stdout(predicate::str::contains("How public, like a frog"));
+        cmd.assert()
+            .success()
+            .stdout(predicate::str::contains("How public, like a frog"));
 
         Ok(())
     }

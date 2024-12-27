@@ -35,7 +35,7 @@ mod tests {
         fn is_ipv4(&self) -> bool {
             match self {
                 IpAddr::V4(_, _, _, _) => true,
-                IpAddr::V6(_) => false
+                IpAddr::V6(_) => false,
             }
         }
     }

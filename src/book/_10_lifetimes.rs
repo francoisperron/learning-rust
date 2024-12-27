@@ -25,7 +25,11 @@ mod tests {
     // annotating x, y, and the return value with the same lifetime annotation does not change x and y lifetimes
     // it means that the lifetime of the return value will be smallest lifetime of x and y
     fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-        if x.len() > y.len() { x } else { y }
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
     }
 
     #[test]
@@ -56,7 +60,7 @@ mod tests {
 
     impl<'a> StructWithAReference<'a> {
         fn with_ending(&self, ends: &str) -> String {
-            format!("{text}{ends}", text=self.the_ref)
+            format!("{text}{ends}", text = self.the_ref)
         }
     }
 

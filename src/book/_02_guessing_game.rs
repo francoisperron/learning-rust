@@ -20,7 +20,7 @@ pub fn guess() {
             Ok(number) => number,
             Err(_) => {
                 println!("Please type a number");
-                continue
+                continue;
             }
         };
 

@@ -3,25 +3,19 @@
 mod tests {
     #[test]
     fn all_works() {
-        let all_even = [2, 4, 6]
-            .iter()
-            .all(|i| i % 2 == 0);
+        let all_even = [2, 4, 6].iter().all(|i| i % 2 == 0);
         assert_eq!(all_even, true);
     }
 
     #[test]
     fn any_works() {
-        let any_even = [1, 3, 6]
-            .iter()
-            .any(|i| i % 2 == 0);
+        let any_even = [1, 3, 6].iter().any(|i| i % 2 == 0);
         assert_eq!(any_even, true);
     }
 
     #[test]
     fn count_works() {
-        let count = [1, 2, 3, 4]
-            .iter()
-            .count();
+        let count = [1, 2, 3, 4].iter().count();
         assert_eq!(count, 4);
     }
 
@@ -56,10 +50,7 @@ mod tests {
 
     #[test]
     fn filter_works() {
-        let even_numbers: Vec<_> = [1, 2, 3]
-            .into_iter()
-            .filter(|i| i % 2 == 0)
-            .collect();
+        let even_numbers: Vec<_> = [1, 2, 3].into_iter().filter(|i| i % 2 == 0).collect();
 
         assert_eq!(even_numbers, vec![2])
     }
@@ -71,7 +62,7 @@ mod tests {
             // .filter_map(|&i| if i % 2 == 0 { Some(i) } else { None })
             .filter_map(|i| match i % 2 == 0 {
                 true => Some(i),
-                false => None
+                false => None,
             })
             .collect();
         assert_eq!(even_numbers, vec![2])
@@ -79,10 +70,7 @@ mod tests {
 
     #[test]
     fn map_works() {
-        let double_numbers: Vec<_> = [1, 2, 3]
-            .iter()
-            .map(|i| i * 2)
-            .collect();
+        let double_numbers: Vec<_> = [1, 2, 3].iter().map(|i| i * 2).collect();
 
         assert_eq!(double_numbers, vec![2, 4, 6])
     }
@@ -92,15 +80,10 @@ mod tests {
         let sum_range = (1..10).reduce(|sum, i| sum + i);
         assert_eq!(sum_range, Some(45));
 
-        let sum_fold_array = [1, 2, 3]
-            .iter()
-            .fold(0, |sum, i| sum + i);
+        let sum_fold_array = [1, 2, 3].iter().fold(0, |sum, i| sum + i);
         assert_eq!(sum_fold_array, 6);
 
-        let sum_reduce_array = [1, 2, 3]
-            .into_iter()
-            .reduce(|sum, i| sum + i)
-            .unwrap();
+        let sum_reduce_array = [1, 2, 3].into_iter().reduce(|sum, i| sum + i).unwrap();
         assert_eq!(sum_reduce_array, 6);
     }
 
@@ -126,9 +109,7 @@ mod tests {
 
     #[test]
     fn partition_groups_by() {
-        let (even, odd): (Vec<_>, Vec<_>) = [1, 2, 3]
-            .into_iter()
-            .partition(|i| i % 2 == 0);
+        let (even, odd): (Vec<_>, Vec<_>) = [1, 2, 3].into_iter().partition(|i| i % 2 == 0);
 
         assert_eq!(even, vec![2]);
         assert_eq!(odd, vec![1, 3]);
@@ -136,10 +117,7 @@ mod tests {
 
     #[test]
     fn reverse_works() {
-        let rev: Vec<_> = [1, 2, 3]
-            .into_iter()
-            .rev()
-            .collect();
+        let rev: Vec<_> = [1, 2, 3].into_iter().rev().collect();
         assert_eq!(rev, vec![3, 2, 1]);
     }
 

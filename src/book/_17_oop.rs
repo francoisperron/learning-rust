@@ -40,7 +40,7 @@ mod tests {
             components: vec![
                 Button { label: String::from("a") },
                 // TextField { text: String::from("b") }, //expected Button found TextField
-            ]
+            ],
         };
 
         assert_eq!(screen.run(), "a");
@@ -49,12 +49,7 @@ mod tests {
     #[test]
     fn trait_as_box_dyn_accepts_all_impls() {
         // aka dynamic dispatch
-        let screen = Screen {
-            components: vec![
-                Box::new(Button { label: String::from("a") }),
-                Box::new(TextField { text: String::from("c") }),
-            ]
-        };
+        let screen = Screen { components: vec![Box::new(Button { label: String::from("a") }), Box::new(TextField { text: String::from("c") })] };
 
         assert_eq!(screen.run(), "ac");
     }
@@ -73,7 +68,10 @@ mod tests {
         pub components: Vec<T>,
     }
 
-    impl<T> ScreenGenerics<T> where T: Draw {
+    impl<T> ScreenGenerics<T>
+    where
+        T: Draw,
+    {
         pub fn run(&self) -> String {
             self.components.iter().map(|c| c.draw()).collect()
         }

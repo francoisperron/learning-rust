@@ -1,6 +1,6 @@
-use std::sync::{Arc, mpsc, Mutex};
-use std::thread;
 use crate::threads::message::Message;
+use std::sync::{mpsc, Arc, Mutex};
+use std::thread;
 
 pub struct Worker {
     id: usize,
@@ -15,7 +15,7 @@ impl Worker {
                 Message::Execute(job) => {
                     println!("Worker {id} got a job; executing.");
                     job()
-                },
+                }
                 Message::Terminate => {
                     println!("Worker {id} terminating.");
                     break;
@@ -34,4 +34,3 @@ impl Worker {
         }
     }
 }
-

@@ -41,6 +41,6 @@ mod tests {
     enum Fruit {
         Apple = 1,
         Orange = 2,
-        Banana = 3
+        Banana = 3,
     }
 }

@@ -3,7 +3,7 @@ pub fn fizz_buzz(number: usize) -> String {
         (true, true) => "FizzBuzz".to_string(),
         (true, _) => "Fizz".to_string(),
         (_, true) => "Buzz".to_string(),
-        _ => number.to_string()
+        _ => number.to_string(),
     }
 }
 

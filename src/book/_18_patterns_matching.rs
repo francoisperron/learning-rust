@@ -115,7 +115,7 @@ mod tests {
         match p {
             Point { x, y: 0 } => format!("On the x axis at {x}"),
             Point { x: 0, y } => format!("On the y axis at {y}"),
-            Point{ x: x_range @ 1..=10, .. } => format!("{x_range} in range 1..10"),
+            Point { x: x_range @ 1..=10, .. } => format!("{x_range} in range 1..10"),
             Point { x, .. } => format!("On neither axis: ({x}, ..)"),
         }
     }
@@ -181,7 +181,7 @@ mod tests {
         match arr {
             [1, _, _] => "starts with one".to_string(),
             [a, .., b] => format!("starts with {a}, ends with {b}"),
-            _ => "".to_string()
+            _ => "".to_string(),
         }
     }
 
@@ -198,13 +198,13 @@ mod tests {
             [a, b] => format!("{a}{b}:2"),
             [a, b, c] => format!("{a}{b}{c}:3"),
             [a, .., b] => format!("{a}{b}:?"),
-            _ => "".to_string()
+            _ => "".to_string(),
         }
     }
 
     #[test]
     fn matches_macro_works() {
-        let v = [1,2,3];
+        let v = [1, 2, 3];
         assert!(std::matches!(v, [1, ..]));
     }
 }

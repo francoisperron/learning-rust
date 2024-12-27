@@ -26,8 +26,8 @@ mod tests {
 
         let a1 = only_borrows(1);
         assert_eq!(a1, 2);
-        assert_eq!(a, 1);   // can access a
-        // a = 10;      ⚠️ a is borrowed
+        assert_eq!(a, 1); // can access a
+                          // a = 10;      ⚠️ a is borrowed
 
         let a2 = only_borrows(1);
         assert_eq!(a2, 2);
@@ -46,11 +46,11 @@ mod tests {
     #[test]
     fn closure_can_take_ownership() {
         let a = vec![1, 2, 3];
-        let takes_ownership = move |x| x == a;  // FnOnce
+        let takes_ownership = move |x| x == a; // FnOnce
 
         // assert_eq!(a, vec![1,2,3]);     // ⚠️ cant borrow a moved value
 
-        let b = vec![1,2,3];
+        let b = vec![1, 2, 3];
         assert!(takes_ownership(b));
     }
 }

@@ -1,5 +1,5 @@
-use std::{fs};
 use crate::config::Config;
+use std::fs;
 
 pub mod config;
 

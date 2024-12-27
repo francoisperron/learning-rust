@@ -29,7 +29,6 @@ mod tests {
         is_hello(&(*s)[..]); // double deref like this
     }
 
-
     #[test]
     fn drop_trait_is_called_when_variable_goes_out_of_scope() {
         println!("before scope");
@@ -86,7 +85,8 @@ mod tests {
 
     fn call(friends: &[Friend]) -> String {
         friends
-            .iter().map(|f| format!("hello {}", f.name))
+            .iter()
+            .map(|f| format!("hello {}", f.name))
             .collect::<Vec<String>>()
             .join(", ")
     }

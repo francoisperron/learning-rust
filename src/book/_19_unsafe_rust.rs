@@ -20,7 +20,9 @@ mod tests {
         }
     }
 
-    unsafe fn dangerous() -> String { "pouet".to_string() }
+    unsafe fn dangerous() -> String {
+        "pouet".to_string()
+    }
 
     #[test]
     fn allows_implementing_an_unsafe_trait() {
@@ -43,7 +45,9 @@ mod tests {
     #[test]
     fn allows_accessing_fields_of_a_union() {
         let n = Number { whole: 1 };
-        unsafe { assert_eq!(n.whole, 1); }
+        unsafe {
+            assert_eq!(n.whole, 1);
+        }
     }
 
     union Number {
