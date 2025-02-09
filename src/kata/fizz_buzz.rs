@@ -1,11 +1,22 @@
 pub fn fizz_buzz(number: usize) -> String {
-    match (number % 3 == 0, number % 5 == 0) {
+    match (number.multiple_of(3), number.multiple_of(5)) {
         (true, true) => "FizzBuzz".to_string(),
         (true, _) => "Fizz".to_string(),
         (_, true) => "Buzz".to_string(),
         _ => number.to_string(),
     }
 }
+
+trait MultipleOf {
+    fn multiple_of(&self, divisor: usize) -> bool;
+}
+
+impl MultipleOf for usize {
+    fn multiple_of(&self, divisor: usize) -> bool {
+        self % divisor == 0
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
