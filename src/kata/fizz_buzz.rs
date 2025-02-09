@@ -17,7 +17,6 @@ impl MultipleOf for usize {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
