@@ -3,7 +3,7 @@
 Let's learn Rust
 
 src/book - Exercises from the [Rust book](https://doc.rust-lang.org/book/title-page.html).\
-src/kata - Kata
+src/kata - Kata\
 src/learnings - Specific learnings
 
 To run tests:
