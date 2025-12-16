@@ -34,7 +34,7 @@ mod tests {
     }
 
     #[test]
-    #[should_panic(expected = "already borrowed: BorrowMutError")]
+    #[should_panic(expected = "RefCell already borrowed")]
     fn cant_borrow_mut_twice() {
         let v = RefCell::new(1);
 
