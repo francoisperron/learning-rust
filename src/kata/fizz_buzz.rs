@@ -13,7 +13,7 @@ trait MultipleOf {
 
 impl MultipleOf for usize {
     fn multiple_of(&self, divisor: usize) -> bool {
-        self % divisor == 0
+        self.is_multiple_of(divisor)
     }
 }
 
